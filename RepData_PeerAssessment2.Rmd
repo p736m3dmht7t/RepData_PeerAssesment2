@@ -15,7 +15,17 @@ This project involves exploring the U.S. National Oceanic and Atmospheric Admini
 
 The data for this assignment come in the form of a comma-separated-value file compressed via the bzip2 algorithm to reduce its size. You can download the file from the course web site:
 
-Storm Data [47Mb]
+###Storm Data [47Mb]
+
+```{r,echo=TRUE,cache=TRUE}
+download.file(
+        "https://d396qusza40orc.cloudfront.net/repdata%2Fdata%2FStormData.csv.bz2",
+        "StormData.csv.bz2",method="curl",quiet=FALSE,cacheOK=TRUE)
+system("bunzip StormData.csv.bz2", intern = FALSE, ignore.stdout = FALSE,
+       ignore.stderr = FALSE, wait = TRUE, input = NULL,
+       show.output.on.console = TRUE, minimized = FALSE, invisible = FALSE)
+stormData<-read.csv("StormData.csv")
+```
 There is also some documentation of the database available. Here you will find how some of the variables are constructed/defined.
 
 National Weather Service Storm Data Documentation
